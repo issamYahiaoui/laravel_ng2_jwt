@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,3 +16,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/user/signup','UserController@signUp')->name('user.register') ;
+Route::get('/users','UserController@getUsers')->name('user.fetchAll');
+Route::post('/user/signin','UserController@signIn')->name('user.login') ;
+//::middlewar1e('auth.jwt')

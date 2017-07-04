@@ -16,9 +16,9 @@ class Cors
     public function handle($request, Closure $next)
     {
         return $next($request)
-            // Solvig the Cors problem
-            ->header('Access-Control-Allow-Origin','*') // allow all  origin
+            ->header('Access-Control-Allow-Origin',"*" ) // allow all  origin
             ->header('Access-Control-Allow-Methods','POST,PUT,PATCH,DELETE,PUT,OPTIONS') // allow all methods
-            ->header('Access-Control-Allow-Heaaders','Content-type : Authorization') ; // for using  " application/json"
+            ->header('Access-Control-Allow-Headers','Content-Type,Authorization') // for using  " application/json"
+            ->header('Access-Control-Allow-Headers','X-Requested-With ') ;  // for using  " application/json"
     }
 }
